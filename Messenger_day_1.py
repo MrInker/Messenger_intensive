@@ -4,7 +4,7 @@ from datetime import timezone
 # ЯДРО! Отправка и получение сообщений!
 # Мессенджер!
 
-# все сообщения хроанить в СПИСКЕ
+# все сообщения хранить в СПИСКЕ
 
 all_messages = []
 delta_tz = datetime.timedelta(hours=3, minutes=0)
@@ -12,7 +12,7 @@ dtime = datetime.datetime.now(timezone.utc) + delta_tz
 
 
 # Функция добавления сообщений
-# def - объявление финкции
+# def - объявление функции
 # sender - кто отправил сообщение
 # text - текст сообщения
 def add_message(sender, text):
@@ -22,9 +22,10 @@ def add_message(sender, text):
         "time": dtime.strftime("Дата: %d/%m/%Y  время: %H:%M:%S")
         # ToDO Задание: подставлять текущее время (datatime / strftime)
     }
-    #  append - добавление лемента в конец
+    # проверяем, не достиг ли словарь 100 элементов, ели да, удаляем 0й элемент
     if len(all_messages) == 100:
         del all_messages[0]
+    #  append - добавление элемента в конец словаря
     all_messages.append(new_message)  # Добавляем new_message в конец списка all_messages
 
 
@@ -40,22 +41,22 @@ for i in range(150):
 
 
 # Func для вывода сообщения на экран
-# mess - сообщение {sendet, text, time}
+# mess - сообщение {sender, text, time}
 def print_message(mess):
     print(mess['sender'])
     print(mess['message'])
     print(mess['time'])
 
 
-# ИЛИ
+# ИЛИ по красивому! :
 
 def print_msg(message):
-    # [sender]: text / time
+    # Имя:[sender] Сообщение: "message"  (time)
     print(f"Имя:[{message['sender']}] Сообщение: \"{message['message']}\"  ({message['time']}) ")
 
 
 # вывести 0-е сообщение на экран
-#print_message(all_messages[0])
+# print_message(all_messages[0])
 
 print('0й элемент Словаря: ', end='')
 print_msg(all_messages[0])
