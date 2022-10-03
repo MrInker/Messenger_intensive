@@ -25,11 +25,10 @@ def add_message(sender, text):
     #  append - добавление лемента в конец
     if len(all_messages) == 100:
         del all_messages[0]
-        all_messages.index
     all_messages.append(new_message)  # Добавляем new_message в конец списка all_messages
 
 
-
+# Для проверки заполняем с ловарь на 150 записей:
 for i in range(150):
     add_message(str(i), str(i))
 
