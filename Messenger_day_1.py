@@ -23,13 +23,14 @@ def add_message(sender, text):
         # ToDO Задание: подставлять текущее время (datatime / strftime)
     }
     #  append - добавление лемента в конец
-    if len(all_messages) > 100:
+    if len(all_messages) == 100:
         del all_messages[0]
+        all_messages.index
     all_messages.append(new_message)  # Добавляем new_message в конец списка all_messages
 
 
 
-for i in range(110):
+for i in range(150):
     add_message(str(i), str(i))
 
 
@@ -51,7 +52,7 @@ def print_message(mess):
 
 def print_msg(message):
     # [sender]: text / time
-    print(f"[{message['sender']}]: {message['message']} / {message['time']} ")
+    print(f"Имя:[{message['sender']}] Сообщение: \"{message['message']}\"  ({message['time']}) ")
 
 
 # вывести 0-е сообщение на экран
@@ -68,5 +69,5 @@ print('Длинна массива: ', len(all_messages))
 
 # для каждого сообщения в списке сообщений - сделать следующее (напечатать сообщение print_message(msg))
 
-# for msg in all_messages:  # для каждого сообщения в списке сообщений
-#    print_msg(msg)  # переменная msg хранит по очережм каждое из сообщений (1,2,3,...)
+for msg in all_messages:  # для каждого сообщения в списке сообщений
+    print_msg(msg)  # переменная msg хранит по очережм каждое из сообщений (1,2,3,...)
